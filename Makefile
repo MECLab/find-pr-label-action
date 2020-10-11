@@ -6,7 +6,7 @@ format-check:
 	./node_modules/.bin/prettier --check **/*.ts
 
 build:
-	eslint src/**/*.ts
+	./node_modules/.bin/eslint src/**/*.ts
 	./node_modules/.bin/tsc -p .
 
 package:
