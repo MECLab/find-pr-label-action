@@ -1,0 +1,26 @@
+name: CI
+on:
+  push:
+  pull_request:
+    types: [ opened ]
+
+jobs:
+  build:
+    name: 🧱 build
+
+    runs-on: ubuntu-latest
+    container: docker://node:latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      - name: format
+        run: make format
+
+      - name: 🧱 Build Typescript src
+        run: make build
+
