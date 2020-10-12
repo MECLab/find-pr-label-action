@@ -1,11 +1,11 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'find-pr-label-action'
+description: 'A GitHub action the finds the occurrence of a specified PR label and returns as an action output'
+author: 'MECLab'
 inputs:
-  milliseconds: # change this
+  labels:
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: 'find the labels as provided'
+
 runs:
   using: 'node12'
   main: 'dist/index.js'
