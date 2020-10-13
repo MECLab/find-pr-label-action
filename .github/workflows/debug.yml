@@ -1,0 +1,18 @@
+name: debug
+on:
+  pull_request:
+    types: [ opened, labeled, unlabeled ]
+  pull_request_review_comment:
+    types: [ created ]
+
+jobs:
+  debug:
+    name: 🐛 debug
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: with anyof array
+        uses: ./
+        with:
+          match_any: "major, minor"

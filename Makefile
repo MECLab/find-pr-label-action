@@ -11,3 +11,8 @@ build:
 
 package:
 	./node_modules/.bin/ncc build --source-map --license licenses.txt
+
+ready: format build package
+
+test:
+	npx jest __tests__/unit/**
