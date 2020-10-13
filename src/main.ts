@@ -1,14 +1,17 @@
-import * as core from '@actions/core'
-import {context} from '@actions/github'
+import * as core from "@actions/core"
+import {context} from "@actions/github"
+import {FindMatchRequest} from "./models/find-match-request"
+import {LabelMatchingService} from "./services/label-matching-service"
 
 async function run(): Promise<void> {
     try {
-        const labels: string = core.getInput('anyOf')
-        const pr_labels = context.payload.pull_request?.labels || []
+        const matchInputs: string = core.getInput("match_any")
+        const request = new FindMatchRequest(matchInputs, context.payload)
 
-        core.debug(`find using: ${JSON.stringify({labels, pr_labels}, null, 2)}`)
+        const matchingService = new LabelMatchingService()
+        const output = matchingService.findMatches(request)
 
-        // core.setOutput('time', new Date().toTimeString())
+        core.setOutput("matches", output)
     } catch (error) {
         core.setFailed(error.message)
     }
