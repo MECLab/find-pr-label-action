@@ -2,6 +2,8 @@ name: debug
 on:
   pull_request:
     types: [ opened, labeled, unlabeled ]
+  pull_request_review_comment:
+    types: [ created ]
 
 jobs:
   debug:
