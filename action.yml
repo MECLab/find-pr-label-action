@@ -2,9 +2,9 @@ name: 'find-pr-label-action'
 description: 'A GitHub action the finds the occurrence of a specified PR label and returns as an action output'
 author: 'MECLab'
 inputs:
-  labels:
+  any_of:
     required: true
-    description: 'find the labels as provided'
+    description: 'finds any of the specified values in the PR labels.'
 
 runs:
   using: 'node12'

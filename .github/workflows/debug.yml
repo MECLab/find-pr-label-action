@@ -1,0 +1,20 @@
+name: debug
+on:
+  pull_request: [ opened, labeled, unlabeled ]
+
+  debug:
+    name: 🐛 debug
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: with anyof array
+        uses: ./
+        with:
+          anyOf: [major, minor]
+      - name: with anyof yaml list
+          uses: ./
+          with:
+            anyOf:
+              - major
+              - minor
