@@ -13,8 +13,8 @@ on:
         with:
           anyOf: [major, minor]
       - name: with anyof yaml list
-          uses: ./
-          with:
-            anyOf:
-              - major
-              - minor
+        uses: ./
+        with:
+          anyOf:
+            - major
+            - minor
