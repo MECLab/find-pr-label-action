@@ -112,7 +112,7 @@ class LabelMatchingService {
             core.info("Skip matching... No labels exists on the PR");
             return null;
         }
-        core.debug("Retrieving matches");
+        core.debug(`find matches from ${JSON.stringify({ match_labels, pr_labels }, null, 2)}`);
         const match = pr_labels.find(pr_label => match_labels.some(match_label => pr_label === match_label));
         core.endGroup();
         return { match };
