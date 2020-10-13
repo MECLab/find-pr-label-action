@@ -13,10 +13,10 @@ jobs:
       - name: with anyof array
         uses: ./
         with:
-          anyOf: [major, minor]
+          any_of: [major, minor]
       - name: with anyof yaml list
         uses: ./
         with:
-          anyOf:
+          any_of:
             - major
             - minor
