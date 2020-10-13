@@ -1,6 +1,7 @@
 name: debug
 on:
-  pull_request: [ opened, labeled, unlabeled ]
+  pull_request:
+    types: [ opened, labeled, unlabeled ]
 
   debug:
     name: 🐛 debug
