@@ -70,9 +70,6 @@ class FindMatchRequest {
     }
 }
 exports.FindMatchRequest = FindMatchRequest;
-// export interface PullRequestLabels {
-//
-// }
 
 
 /***/ }),
