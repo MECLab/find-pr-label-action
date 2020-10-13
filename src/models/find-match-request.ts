@@ -12,3 +12,7 @@ export class FindMatchRequest {
         return this.payload.pull_request?.labels
     }
 }
+
+// export interface PullRequestLabels {
+//
+// }
