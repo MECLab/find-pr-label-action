@@ -15,4 +15,4 @@ jobs:
       - name: with anyof array
         uses: ./
         with:
-          any_of: [major, minor]
+          match_any: "major, minor"
