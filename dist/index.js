@@ -66,13 +66,10 @@ class FindMatchRequest {
     }
     getPRLabels() {
         var _a;
-        return (_a = this.payload.pull_request) === null || _a === void 0 ? void 0 : _a.labels;
+        return ((_a = this.payload.pull_request) === null || _a === void 0 ? void 0 : _a.labels).map(label => label.name);
     }
 }
 exports.FindMatchRequest = FindMatchRequest;
-// export interface PullRequestLabels {
-//
-// }
 
 
 /***/ }),
