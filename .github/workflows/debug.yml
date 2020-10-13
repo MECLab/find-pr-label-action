@@ -16,9 +16,3 @@ jobs:
         uses: ./
         with:
           any_of: [major, minor]
-      - name: with anyof yaml list
-        uses: ./
-        with:
-          any_of:
-            - major
-            - minor
