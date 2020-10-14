@@ -14,5 +14,5 @@ package:
 
 ready: format build package
 
-test:
+test-unit:
 	npx jest __tests__/unit/**

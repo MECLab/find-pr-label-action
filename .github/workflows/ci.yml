@@ -16,7 +16,7 @@ jobs:
 
       # install dependencies
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       - name: format
         run: make format
@@ -24,3 +24,25 @@ jobs:
       - name: 🧱 Build Typescript src
         run: make build
 
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: lib
+          path: ./lib
+
+  test:
+    name: 🧪 test
+
+    runs-on: ubuntu-latest
+    container: docker://node:latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # install dependencies
+      - name: Install Dependencies
+        run: npm ci
+
+      # run tests
+      - name: 🧪 Run Unit Tests
+        run: make test-unit
