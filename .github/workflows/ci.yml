@@ -46,3 +46,28 @@ jobs:
       # run tests
       - name: 🧪 Run Unit Tests
         run: make test-unit
+
+  package:
+    name: 📦 package
+
+    runs-on: ubuntu-latest
+    container: docker://node:latest
+
+#    if: ${{ github. }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Download lib from build job
+        uses: actions/download-artifact@v2
+        with:
+          name: lib
+          path: ./lib
+
+      - name: 🧳 pack
+        run: make package
+
+      - run: git add ./dist/*
+      - run: >
+          git commit -m \"chore: package distribution\"
+      - run: git push
