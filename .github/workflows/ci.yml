@@ -59,7 +59,7 @@ jobs:
 
     steps:
       - name: Install Container Dependencies
-        run: apt-get update && apt-get install git
+        run: apt-get update && apt-get upgrade git
 
       - uses: actions/checkout@v2.3.3
 
