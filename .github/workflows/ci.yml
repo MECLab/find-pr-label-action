@@ -74,7 +74,8 @@ jobs:
       - name: 🧳 pack
         run: make package
 
-      - run: ls -a $GITHUB_WORKSPACE
+      - run: ls -a lib
+      - run: ls -a dist
 
       - name: 🐙 push distribution package
         run: |
