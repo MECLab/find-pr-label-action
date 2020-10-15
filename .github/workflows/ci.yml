@@ -73,7 +73,10 @@ jobs:
       - name: 🧳 pack
         run: make package
 
-      - run: |
+      - run: ls -a
+
+      - name: 🐙 push distribution package
+        run: |
           git add ./dist/*
           git commit -m \"chore: package distribution\"
           git push
