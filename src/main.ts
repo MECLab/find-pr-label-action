@@ -9,6 +9,7 @@ async function run(): Promise<void> {
         const request = new FindMatchRequest(matchInputs, context.payload)
 
         const matchingService = new LabelMatchingService()
+        core.debug("Starting search...")
         const output = matchingService.findMatches(request)
 
         core.setOutput("matches", output)
