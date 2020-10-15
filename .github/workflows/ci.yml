@@ -61,9 +61,10 @@ jobs:
       - name: Install Container Dependencies
         run: |
           apt update
+          apt-key adv --recv-keys --keyserver keyserver.ubuntu.com A1715D88E1DF1F24
           apt install software-properties-common -y
 
-          add-apt-repository ppa:git-core/ppa
+          add-apt-repository ppa:git-core/ppa -y
           apt update
           apt upgrade git
 
