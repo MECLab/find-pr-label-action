@@ -55,8 +55,6 @@ jobs:
 
     needs: build
 
-#    if: ${{ github. }}
-
     steps:
 
       - uses: actions/checkout@v2.3.3
