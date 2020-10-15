@@ -36,7 +36,6 @@ async function run() {
         const matchInputs = core.getInput("match_any");
         const request = new find_match_request_1.FindMatchRequest(matchInputs, github_1.context.payload);
         const matchingService = new label_matching_service_1.LabelMatchingService();
-        core.debug("Starting search...");
         const output = matchingService.findMatches(request);
         core.setOutput("matches", output);
     }
