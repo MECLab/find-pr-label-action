@@ -74,14 +74,11 @@ jobs:
       - name: 🧳 pack
         run: make package
 
-      - run: ls -a lib
-      - run: ls -a dist
-
       - name: 🐙 push distribution package
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
 
-          git add ./dist/*
+          git add .
           git commit -m "chore: package distribution"
           git push
