@@ -78,6 +78,9 @@ jobs:
 
       - name: 🐙 push distribution package
         run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
           git add ./dist/*
           git commit -m "chore: package distribution"
           git push
