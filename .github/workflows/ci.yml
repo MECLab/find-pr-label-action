@@ -61,6 +61,10 @@ jobs:
       - name: Install Container Dependencies
         run: |
           apt update
+          apt install software-properties-common
+
+          add-apt-repository ppa:git-core/ppa
+          apt update
           apt upgrade git
 
       - uses: actions/checkout@v2.3.3
