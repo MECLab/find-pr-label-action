@@ -73,8 +73,7 @@ jobs:
       - name: 🧳 pack
         run: make package
 
-      - uses: actions/checkout@v2
-        run: |
+      - run: |
           git add ./dist/*
           git commit -m \"chore: package distribution\"
           git push
