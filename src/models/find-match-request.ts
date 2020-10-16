@@ -1,7 +1,5 @@
-import {WebhookPayload} from "@actions/github/lib/interfaces"
-
 export class FindMatchRequest {
-    constructor(readonly matchLabelsInput: string, readonly payload: WebhookPayload) {}
+    constructor(readonly matchLabelsInput: string, readonly payload: GitHubWebhookPayload) {}
 
     getMatchLabels(): string[] {
         const regex = new RegExp(/[,;| ] */g)
@@ -9,7 +7,7 @@ export class FindMatchRequest {
     }
 
     getPRLabels(): string[] | null {
-        return (this.payload.pull_request?.labels as PullRequestLabels[]).map(label => label.name)
+        return (this.payload.pull_request?.labels as PullRequestLabels[])?.map(label => label.name)
     }
 }
 
@@ -21,4 +19,10 @@ export interface PullRequestLabels {
     description: string
     node_id: string
     url: string
+}
+
+export interface GitHubWebhookPayload {
+    pull_request?: {
+        labels?: PullRequestLabels[]
+    }
 }

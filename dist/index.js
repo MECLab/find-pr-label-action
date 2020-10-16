@@ -65,8 +65,8 @@ class FindMatchRequest {
         return this.matchLabelsInput.split(regex);
     }
     getPRLabels() {
-        var _a;
-        return ((_a = this.payload.pull_request) === null || _a === void 0 ? void 0 : _a.labels).map(label => label.name);
+        var _a, _b;
+        return (_b = (_a = this.payload.pull_request) === null || _a === void 0 ? void 0 : _a.labels) === null || _b === void 0 ? void 0 : _b.map(label => label.name);
     }
 }
 exports.FindMatchRequest = FindMatchRequest;

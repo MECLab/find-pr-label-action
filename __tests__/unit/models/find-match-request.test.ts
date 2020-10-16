@@ -87,3 +87,35 @@ describe("getMatchLabels", () => {
         expect(target[2]).toContain("patch")
     })
 })
+
+describe("getPRLabels", () => {
+    test("it should return null when pull_request is null", () => {
+        // arrange
+        const request = new FindMatchRequest("major", {})
+
+        // act
+        const target = request.getPRLabels()
+
+        // assert
+        expect(target).toBeUndefined()
+    })
+
+    test("it should return the PR labels when they exist on the PR", () => {
+        // arrange
+        const request = new FindMatchRequest("major", {
+            pull_request: {
+                labels: [
+                    {id: "id", name: "foo", color: "color", default: false, description: "", node_id: "node_id", url: "url"},
+                    {id: "id", name: "major", color: "color", default: false, description: "", node_id: "node_id", url: "url"},
+                ]
+            }
+        })
+
+        // act
+        const target = request.getPRLabels()
+
+        // assert
+        expect(target).toContainEqual("foo")
+        expect(target).toContainEqual("major")
+    })
+})
