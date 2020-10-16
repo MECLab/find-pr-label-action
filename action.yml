@@ -1,5 +1,5 @@
 name: 'find-pr-label-action'
-description: 'A GitHub action the finds the occurrence of a specified PR label and returns as an action output'
+description: 'A GitHub action that finds the occurrence of a specified PR label and returns as an action output'
 author: 'MECLab'
 inputs:
   match_any:
