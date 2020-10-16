@@ -1,12 +1,12 @@
 import * as core from "@actions/core"
 import {context} from "@actions/github"
-import {FindMatchRequest} from "./models/find-match-request"
+import {FindMatchRequest, GitHubWebhookPayload} from "./models/find-match-request"
 import {LabelMatchingService} from "./services/label-matching-service"
 
 async function run(): Promise<void> {
     try {
         const matchInputs: string = core.getInput("match_any")
-        const request = new FindMatchRequest(matchInputs, context.payload)
+        const request = new FindMatchRequest(matchInputs, context.payload as GitHubWebhookPayload)
 
         const matchingService = new LabelMatchingService()
         const output = matchingService.findMatches(request)
