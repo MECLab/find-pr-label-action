@@ -106,6 +106,7 @@ class LabelMatchingService {
         var _a;
         core.startGroup("matching-service");
         core.debug("retrieving match labels and PR labels");
+        core.debug(`pull_request: ${JSON.stringify(req.payload.pull_request)}`);
         const match_labels = req.getMatchLabels().map(label => label.toLowerCase());
         const pr_labels = (_a = req.getPRLabels()) === null || _a === void 0 ? void 0 : _a.map(label => label.toLowerCase());
         if (!pr_labels) {
