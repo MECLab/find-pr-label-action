@@ -6,6 +6,7 @@ export class LabelMatchingService {
         core.startGroup("matching-service")
 
         core.debug("retrieving match labels and PR labels")
+        core.debug(`pull_request: ${JSON.stringify(req.payload.pull_request)}`)
         const match_labels = req.getMatchLabels().map(label => label.toLowerCase())
         const pr_labels = req.getPRLabels()?.map(label => label.toLowerCase())
 
